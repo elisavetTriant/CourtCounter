@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="root_layout_margin_top">16dp</dimen>
-    <dimen name="root_layout_margin_bottom">32dp</dimen>
+    <dimen name="root_layout_padding_top">16dp</dimen>
+    <dimen name="root_layout_padding_bottom">32dp</dimen>
     <dimen name="score_margin_top">16dp</dimen>
     <dimen name="score_margin_bottom">16dp</dimen>
     <dimen name="score_padding">4dp</dimen>
