@@ -7,14 +7,48 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    //Declare and initialize global vars
     int scoreTeamA = 0;
     int scoreTeamB = 0;
+    TextView scoreAView;
+    TextView scoreBView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        scoreAView = (TextView) findViewById(R.id.team_a_score);
+        scoreBView = (TextView) findViewById(R.id.team_b_score);
+
+        //Display initial global values
+        displayForTeamA(scoreTeamA);
+        displayForTeamB(scoreTeamB);
+    }
+
+    // https://stackoverflow.com/questions/151777/saving-android-activity-state-using-save-instance-state
+    //prevent the application from restarting when changing orientation. Saving global vars between activity states.
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+
+        // Save UI state changes to the savedInstanceState.
+        // This bundle will be passed to onCreate if the process is
+        // killed and restarted.
+        savedInstanceState.putInt("scoreTeamA", scoreTeamA);
+        savedInstanceState.putInt("scoreTeamB", scoreTeamB);
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        // Restore UI state from the savedInstanceState.
+        // This bundle has also been passed to onCreate.
+        scoreTeamA = savedInstanceState.getInt("scoreTeamA");
+        scoreTeamB = savedInstanceState.getInt("scoreTeamB");
+
+        //Display saved global vars values
         displayForTeamA(scoreTeamA);
         displayForTeamB(scoreTeamB);
     }
@@ -23,8 +57,7 @@ public class MainActivity extends AppCompatActivity {
      * Displays the given score for Team A.
      */
     public void displayForTeamA(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.team_a_score);
-        scoreView.setText(String.valueOf(score));
+        scoreAView.setText(String.valueOf(score));
     }
     /**
      * Increase the score for Team A by 1 point.
@@ -54,8 +87,7 @@ public class MainActivity extends AppCompatActivity {
      * Displays the given score for Team B.
      */
     public void displayForTeamB(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.team_b_score);
-        scoreView.setText(String.valueOf(score));
+        scoreBView.setText(String.valueOf(score));
     }
 
         /**
