@@ -12,6 +12,9 @@ public class MainActivity extends AppCompatActivity {
     int scoreTeamB = 0;
     TextView scoreAView;
     TextView scoreBView;
+    //String constants for keys
+    static final String SCORE_CNT_A = "scoreTeamA";
+    static final String SCORE_CNT_B = "scoreTeamB";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,8 +38,8 @@ public class MainActivity extends AppCompatActivity {
         // Save UI state changes to the savedInstanceState.
         // This bundle will be passed to onCreate if the process is
         // killed and restarted.
-        savedInstanceState.putInt("scoreTeamA", scoreTeamA);
-        savedInstanceState.putInt("scoreTeamB", scoreTeamB);
+        savedInstanceState.putInt(SCORE_CNT_A, scoreTeamA);
+        savedInstanceState.putInt(SCORE_CNT_B, scoreTeamB);
     }
 
     @Override
@@ -45,8 +48,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Restore UI state from the savedInstanceState.
         // This bundle has also been passed to onCreate.
-        scoreTeamA = savedInstanceState.getInt("scoreTeamA");
-        scoreTeamB = savedInstanceState.getInt("scoreTeamB");
+        scoreTeamA = savedInstanceState.getInt(SCORE_CNT_A);
+        scoreTeamB = savedInstanceState.getInt(SCORE_CNT_B);
 
         //Display saved global vars values
         displayForTeamA(scoreTeamA);
@@ -59,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
     public void displayForTeamA(int score) {
         scoreAView.setText(String.valueOf(score));
     }
+
     /**
      * Increase the score for Team A by 1 point.
      */
@@ -90,29 +94,29 @@ public class MainActivity extends AppCompatActivity {
         scoreBView.setText(String.valueOf(score));
     }
 
-        /**
-         * Increase the score for Team B by 1 point.
-         */
-        public void addOneForTeamB(View v) {
-            scoreTeamB = scoreTeamB + 1;
-            displayForTeamB(scoreTeamB);
-        }
+    /**
+     * Increase the score for Team B by 1 point.
+     */
+    public void addOneForTeamB(View v) {
+        scoreTeamB = scoreTeamB + 1;
+        displayForTeamB(scoreTeamB);
+    }
 
-        /**
-         * Increase the score for Team B by 2 points.
-         */
-        public void addTwoForTeamB(View v) {
-            scoreTeamB = scoreTeamB + 2;
-            displayForTeamB(scoreTeamB);
-        }
+    /**
+     * Increase the score for Team B by 2 points.
+     */
+    public void addTwoForTeamB(View v) {
+        scoreTeamB = scoreTeamB + 2;
+        displayForTeamB(scoreTeamB);
+    }
 
-        /**
-         * Increase the score for Team B by 3 points.
-         */
-        public void addThreeForTeamB(View v) {
-            scoreTeamB = scoreTeamB + 3;
-            displayForTeamB(scoreTeamB);
-        }
+    /**
+     * Increase the score for Team B by 3 points.
+     */
+    public void addThreeForTeamB(View v) {
+        scoreTeamB = scoreTeamB + 3;
+        displayForTeamB(scoreTeamB);
+    }
 
     /**
      * Reset the score, starting a new game.

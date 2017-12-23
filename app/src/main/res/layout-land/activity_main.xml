@@ -8,12 +8,12 @@
     android:paddingBottom="@dimen/root_layout_padding_bottom"
     tools:context="com.example.android.courtcounter.MainActivity">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
         <LinearLayout
+            android:id="@+id/LL2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
@@ -115,8 +115,10 @@
             android:layout_height="wrap_content"
             android:text="@string/reset"
             android:onClick="resetGame"
-            android:layout_gravity="center"
-            style="@style/buttonsStyle"
+            android:layout_below="@id/LL2"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="@dimen/reset_button_margin_top"
             />
-    </LinearLayout>
+    </RelativeLayout>
 </ScrollView>
