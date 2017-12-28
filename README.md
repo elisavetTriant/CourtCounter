@@ -1,5 +1,5 @@
 # CourtCounter
-This is a small App that can be used to keep track of the points in a basketball game. This was made for the Google Developer Challenge 2017-2018 as an assignment to practice with Java.
+This is a small App that can be used to keep track of the points in a basketball game. This was made for the Google Developer Challenge 2017-2018 as an assignment to practice with Building Layouts and adding interactivity with Java.
 
 This is how the App behaves:(short video on Youtube)
 
@@ -14,7 +14,7 @@ Landscape
 
 ![Udacity CourtCounter App Landscape](https://github.com/elisavetTriant/CourtCounter/blob/master/screenshots/Screenshot_CourtCounter_landscape.png  "Udacity CourtCounter App Landscape")
 
-And here is what the layout xml code looks like (file app/src/main/res/layout/activity_main.xml, or https://github.com/elisavetTriant/CourtCounter/blob/master/app/src/main/res/layout/activity_main.xml
+And here is what the layout xml code looks like (file app/src/main/res/layout/activity_main.xml, or https://github.com/elisavetTriant/CourtCounter/blob/Access-Modifiers-Experimentation/app/src/main/res/layout/activity_main.xml
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -139,7 +139,7 @@ And here is what the layout xml code looks like (file app/src/main/res/layout/ac
     </RelativeLayout>
 </ScrollView>
 ```
-The design caters for different layout for landscape orientation, file: https://github.com/elisavetTriant/CourtCounter/blob/master/app/src/main/res/layout-land/activity_main.xml
+The design caters for different layout for landscape orientation, file: https://github.com/elisavetTriant/CourtCounter/blob/Access-Modifiers-Experimentation/app/src/main/res/layout-land/activity_main.xml
 
 Don't forget to take a look at the resources folder ( /app/res/values ) and take a look at the code there also. For instance the styles.xml code looks like this now:
 ```xml
@@ -181,7 +181,7 @@ Don't forget to take a look at the resources folder ( /app/res/values ) and take
 
 </resources>
 ```
-The java code looks like this (app/src/main/java/com/example/android/justjava) or https://github.com/elisavetTriant/CourtCounter/blob/master/app/src/main/java/com/example/android/courtcounter/MainActivity.java
+The java code looks like this (app/src/main/java/com/example/android/justjava) or https://github.com/elisavetTriant/CourtCounter/blob/Access-Modifiers-Experimentation/app/src/main/java/com/example/android/courtcounter/MainActivity.java
 
 ```java
 package com.example.android.courtcounter;
@@ -194,10 +194,14 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     //Declare and initialize global vars
-    int scoreTeamA = 0;
-    int scoreTeamB = 0;
-    TextView scoreAView;
-    TextView scoreBView;
+    private int scoreTeamA = 0;
+    private int scoreTeamB = 0;
+    //UI objects
+    private TextView scoreAView;
+    private TextView scoreBView;
+    //String constants for keys
+    private static final String SCORE_CNT_A = "scoreTeamA";
+    private static final String SCORE_CNT_B = "scoreTeamB";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -221,8 +225,8 @@ public class MainActivity extends AppCompatActivity {
         // Save UI state changes to the savedInstanceState.
         // This bundle will be passed to onCreate if the process is
         // killed and restarted.
-        savedInstanceState.putInt("scoreTeamA", scoreTeamA);
-        savedInstanceState.putInt("scoreTeamB", scoreTeamB);
+        savedInstanceState.putInt(SCORE_CNT_A, scoreTeamA);
+        savedInstanceState.putInt(SCORE_CNT_B, scoreTeamB);
     }
 
     @Override
@@ -231,8 +235,8 @@ public class MainActivity extends AppCompatActivity {
 
         // Restore UI state from the savedInstanceState.
         // This bundle has also been passed to onCreate.
-        scoreTeamA = savedInstanceState.getInt("scoreTeamA");
-        scoreTeamB = savedInstanceState.getInt("scoreTeamB");
+        scoreTeamA = savedInstanceState.getInt(SCORE_CNT_A);
+        scoreTeamB = savedInstanceState.getInt(SCORE_CNT_B);
 
         //Display saved global vars values
         displayForTeamA(scoreTeamA);
@@ -242,9 +246,10 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Displays the given score for Team A.
      */
-    public void displayForTeamA(int score) {
+    private void displayForTeamA(int score) {
         scoreAView.setText(String.valueOf(score));
     }
+
     /**
      * Increase the score for Team A by 1 point.
      */
@@ -272,33 +277,33 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Displays the given score for Team B.
      */
-    public void displayForTeamB(int score) {
+    private void displayForTeamB(int score) {
         scoreBView.setText(String.valueOf(score));
     }
 
-        /**
-         * Increase the score for Team B by 1 point.
-         */
-        public void addOneForTeamB(View v) {
-            scoreTeamB = scoreTeamB + 1;
-            displayForTeamB(scoreTeamB);
-        }
+    /**
+     * Increase the score for Team B by 1 point.
+     */
+    public void addOneForTeamB(View v) {
+        scoreTeamB = scoreTeamB + 1;
+        displayForTeamB(scoreTeamB);
+    }
 
-        /**
-         * Increase the score for Team B by 2 points.
-         */
-        public void addTwoForTeamB(View v) {
-            scoreTeamB = scoreTeamB + 2;
-            displayForTeamB(scoreTeamB);
-        }
+    /**
+     * Increase the score for Team B by 2 points.
+     */
+    public void addTwoForTeamB(View v) {
+        scoreTeamB = scoreTeamB + 2;
+        displayForTeamB(scoreTeamB);
+    }
 
-        /**
-         * Increase the score for Team B by 3 points.
-         */
-        public void addThreeForTeamB(View v) {
-            scoreTeamB = scoreTeamB + 3;
-            displayForTeamB(scoreTeamB);
-        }
+    /**
+     * Increase the score for Team B by 3 points.
+     */
+    public void addThreeForTeamB(View v) {
+        scoreTeamB = scoreTeamB + 3;
+        displayForTeamB(scoreTeamB);
+    }
 
     /**
      * Reset the score, starting a new game.
