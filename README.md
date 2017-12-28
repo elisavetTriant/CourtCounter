@@ -1,5 +1,5 @@
 # CourtCounter
-This is a small App that can be used to keep track of the points in a basketball game. This was made for the Google Developer Challenge 2017-2018 as an assignment to practice with Java.
+This is a small App that can be used to keep track of the points in a basketball game. This was made for the Google Developer Challenge 2017-2018 as an assignment to practice with Building Layouts and adding interactivity with Java.
 
 This is how the App behaves:(short video on Youtube)
 
@@ -194,13 +194,14 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     //Declare and initialize global vars
-    int scoreTeamA = 0;
-    int scoreTeamB = 0;
-    TextView scoreAView;
-    TextView scoreBView;
+    private int scoreTeamA = 0;
+    private int scoreTeamB = 0;
+    //UI objects
+    private TextView scoreAView;
+    private TextView scoreBView;
     //String constants for keys
-    static final String SCORE_CNT_A = "scoreTeamA";
-    static final String SCORE_CNT_B = "scoreTeamB";
+    private static final String SCORE_CNT_A = "scoreTeamA";
+    private static final String SCORE_CNT_B = "scoreTeamB";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -245,7 +246,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Displays the given score for Team A.
      */
-    public void displayForTeamA(int score) {
+    private void displayForTeamA(int score) {
         scoreAView.setText(String.valueOf(score));
     }
 
@@ -276,7 +277,7 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Displays the given score for Team B.
      */
-    public void displayForTeamB(int score) {
+    private void displayForTeamB(int score) {
         scoreBView.setText(String.valueOf(score));
     }
 
