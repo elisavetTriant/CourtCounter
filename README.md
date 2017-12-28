@@ -14,7 +14,7 @@ Landscape
 
 ![Udacity CourtCounter App Landscape](https://github.com/elisavetTriant/CourtCounter/blob/master/screenshots/Screenshot_CourtCounter_landscape.png  "Udacity CourtCounter App Landscape")
 
-And here is what the layout xml code looks like (file app/src/main/res/layout/activity_main.xml, or https://github.com/elisavetTriant/CourtCounter/blob/Access-Modifiers-Experimentation/app/src/main/res/layout/activity_main.xml
+And here is what the layout xml code looks like (file app/src/main/res/layout/activity_main.xml, or https://github.com/elisavetTriant/CourtCounter/blob/master/app/src/main/res/layout/activity_main.xml
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -139,7 +139,7 @@ And here is what the layout xml code looks like (file app/src/main/res/layout/ac
     </RelativeLayout>
 </ScrollView>
 ```
-The design caters for different layout for landscape orientation, file: https://github.com/elisavetTriant/CourtCounter/blob/Access-Modifiers-Experimentation/app/src/main/res/layout-land/activity_main.xml
+The design caters for different layout for landscape orientation, file: https://github.com/elisavetTriant/CourtCounter/blob/master/app/src/main/res/layout-land/activity_main.xml
 
 Don't forget to take a look at the resources folder ( /app/res/values ) and take a look at the code there also. For instance the styles.xml code looks like this now:
 ```xml
@@ -181,7 +181,7 @@ Don't forget to take a look at the resources folder ( /app/res/values ) and take
 
 </resources>
 ```
-The java code looks like this (app/src/main/java/com/example/android/justjava) or https://github.com/elisavetTriant/CourtCounter/blob/Access-Modifiers-Experimentation/app/src/main/java/com/example/android/courtcounter/MainActivity.java
+The java code looks like this (app/src/main/java/com/example/android/justjava) or https://github.com/elisavetTriant/CourtCounter/blob/master/app/src/main/java/com/example/android/courtcounter/MainActivity.java
 
 ```java
 package com.example.android.courtcounter;
